@@ -1,0 +1,12 @@
+{
+  "summary": {
+    "title": "privileged access logging",
+    "owner": "Johan Sydseter",
+    "description": "Privileged access logging need to be a general solution for VAM as a product and at the same time allow for customizations. When custom components are introduced, it is important to allow for a loosely coupled architecture that doesn't put restrictions on deployment and operations. To do this we deploy asynchronous services. When creating entries we allow asynchronous operations and customizations can be done by listening to privileged access entry events.\n\nData is currently only stored in a flat log file on the filesystem with the possibility to configure the location, layout and log format according to the customer demands. Third party log and monitoring systems needs to use systems like FileBeat in order to view and redirect entries or deploy custom integrations in order to enrich the data.\n\nNew entries are, when custom integrations are enabled, published onto a JMS message queue so that custom components deployed in the customer's environments can pick up on new entries and enrich the data with the customer's own data model according to their needs.\n\nThe JMS message queue that has the purpose of alerting third-party systems of new entries can be switched both on and off."
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [],
+    "reviewer": "Vesa Hokkanen"
+  }
+}
